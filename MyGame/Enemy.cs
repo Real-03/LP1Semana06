@@ -1,9 +1,8 @@
 using System;
 
-namespace Enemy
-{
     public class Enemy
     {
+
 
         private string name;
         private float health;
@@ -16,15 +15,15 @@ namespace Enemy
             shield = 0;
         }
 
-        public string GetName ( )
+        public string GetName ()
         {
             return name ;
         }
-        public float GetHealth ( )
+        public float GetHealth ()
         {
             return health ;
         }
-        public float GetShield ( )
+        public float GetShield ()
         {
             return shield ;
         }
@@ -43,11 +42,27 @@ namespace Enemy
 
         public string SetName(string name)
         {
-            return name.Substring(0, 8);
+            if(name.Length>8)
+                return name.Substring(0, 8);
+            else
+                return name;
         }
 
+        public void PickupPowerUp(PowerUp type, float value)
+        {
+            if(type == PowerUp.Health)
+            {
+                health+=value;
+                    if(health>100)
+                        health = 100;
+            }
+            if(type == PowerUp.Shield)
+            {
+                shield += value;
+                    if(shield>100)
+                        shield = 100;
+            }
+
+        }
 
     }
-
-
-}
