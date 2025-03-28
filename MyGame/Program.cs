@@ -13,15 +13,17 @@ namespace MyGame
                 string name = Console.ReadLine();
                 enemies[i] = new Enemy(name);
             }
-            enemies[0].PickupPowerUp(PowerUp.Health, 200);
-            enemies[0].TakeDamage(50);
-            enemies[0].PickupPowerUp(PowerUp.Shield, 100);
-            enemies[0].TakeDamage(67);
+            enemies[0].PickupPowerUp(PowerUp.Health,20);
+            enemies[1].PickupPowerUp(PowerUp.Health,20);
+
+
+
+
             foreach (var enemy in enemies)
             {
                 Console.WriteLine($"{enemy.GetName()} {enemy.GetHealth()} {enemy.GetShield()}");
             }
-
+            Console.WriteLine($"{enemies[0].GetPowerUps()}");
         }
     }
 }

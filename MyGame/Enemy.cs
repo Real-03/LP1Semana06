@@ -7,12 +7,14 @@ using System;
         private string name;
         private float health;
         private float shield;
+        private static  int p;
 
         public Enemy(string name )
         {
             this.name = SetName(name); // name o c u l t a t h i s . name
             health = 100;
             shield = 0;
+            p=0;
         }
 
         public string GetName ()
@@ -26,6 +28,10 @@ using System;
         public float GetShield ()
         {
             return shield ;
+        }
+        public int GetPowerUps ()
+        {
+            return p ;
         }
 
         public void TakeDamage (float damage)
@@ -50,6 +56,7 @@ using System;
 
         public void PickupPowerUp(PowerUp type, float value)
         {
+            p++;
             if(type == PowerUp.Health)
             {
                 health+=value;
@@ -64,5 +71,6 @@ using System;
             }
 
         }
+
 
     }
